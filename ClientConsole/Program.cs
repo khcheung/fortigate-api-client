@@ -12,7 +12,10 @@ namespace ClientConsole
             //var r1 = await client.GetRouterDefaultAsync();
             //var r2 = await client.GetRouterDefaultAsync("192.168.1.105");
 
-            //var ifaces = await client.GetSystemInterfaceAsync(GetInterfaceViewTypeEnum.Limited);
+            //var  ifaces = await client.GetSystemInterfaceAsync();
+            //var ifaces = await client.GetSystemAvailableInterfaceAsync(GetInterfaceViewTypeEnum.Limited);
+
+            //var policies = await client.GetFirewallPolicyAsync();
 
             //var availableInterface = ifaces
             //    .Where(i => i.valid_in_policy == true)
@@ -22,8 +25,8 @@ namespace ClientConsole
             //        IP = i.ipv4_addresses.FirstOrDefault()?.ip ?? ""
             //    }).ToList();
 
-            //var vipList = await client.GetVIPListAsync();
-            //await client.CreateVIPAsync(new VIPItem()
+            //var vipList = await client.GetFirewallVIPListAsync();
+            //await client.CreateFirewallVIPAsync(new VIPItem()
             //{
             //    name = "VS6",
             //    servertype = "tcp",
@@ -60,7 +63,7 @@ namespace ClientConsole
 
             //foreach (var vip in vipList)
             //{
-            //    await client.DeleteVIPAsync(vip.q_origin_key);
+            //    await client.DeleteFirewallVIPAsync(vip.q_origin_key);
             //}
 
         }

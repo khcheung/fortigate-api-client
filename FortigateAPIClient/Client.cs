@@ -1,7 +1,7 @@
 ﻿
 using FortigateAPIClient.Models;
+using System.Collections.Generic;
 using System.Net.Http.Json;
-using System.Runtime;
 
 namespace FortigateAPIClient
 {
@@ -27,7 +27,7 @@ namespace FortigateAPIClient
             if (this._HttpClient == null)
             {
                 var handler = new HttpClientHandler();
-                handler.ServerCertificateCustomValidationCallback = (r, c, cc, p) => true;                
+                handler.ServerCertificateCustomValidationCallback = (r, c, cc, p) => true;
                 this._HttpClient = new HttpClient(handler);
                 this._HttpClient.BaseAddress = new Uri(this._BaseUrl);
                 this._HttpClient.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", _Token);
@@ -35,7 +35,15 @@ namespace FortigateAPIClient
             return this._HttpClient;
         }
 
-        public async Task<List<SystemInterface>> GetSystemInterfaceAsync(GetInterfaceViewTypeEnum? viewType = null)
+        public async Task<Dictionary<String, SystemInterface>> GetSystemInterfaceAsync()
+        {
+            // https://192.168.1.99/api/v2/cmdb/system/interface?datasource=true&format=name%7Cmode%7Callowaccess%7Cfortilink%7Cfortitelemetry%7Cipv6%7Csecurity-mode%7Cvrf%7Cip-managed-by-fortiipam%7Cdhcp-relay-ip%7Cdhcp-relay-service%7Cdedicated-to&vdom=root&with_meta=true
+            var path = $"/api/v2/monitor/system/interface?vdom={_VDom}&with_meta=1&datasource=1";
+            var result = await GetAsync<ResponseBase<Dictionary<String, SystemInterface>>>(path);
+            return result?.results ?? new();
+        }
+
+        public async Task<List<SystemAvailableInterface>> GetSystemAvailableInterfaceAsync(GetInterfaceViewTypeEnum? viewType = null)
         {
             var paramViewType = "";
             if (viewType.HasValue)
@@ -51,7 +59,7 @@ namespace FortigateAPIClient
             }
             // /api/v2/monitor/system/available-interfaces?count=18&start=0&vdom=root&view_type=limited
             var path = $"/api/v2/monitor/system/available-interfaces?vdom={_VDom}&with_meta=1&datasource=1&view_type={paramViewType}";
-            var result = await GetAsync<ResponseBase<List<SystemInterface>>>(path);
+            var result = await GetAsync<ResponseBase<List<SystemAvailableInterface>>>(path);
             return result?.results ?? [];
         }
 
@@ -63,7 +71,13 @@ namespace FortigateAPIClient
             return result?.results ?? default!;
         }
 
-
+        public async Task<List<FirewallPolicy>> GetFirewallPolicyAsync()
+        {
+            //https://192.168.1.99/api/v2/cmdb/firewall/policy?start=0&count=1&datasource=true&with_meta=true&vdom=root
+            var path = $"/api/v2/cmdb/firewall/policy?vdom={_VDom}&with_meta=1&datasource=1";
+            var result = await GetAsync<ResponseBase<List<FirewallPolicy>>>(path);
+            return result?.results ?? default!;
+        }
 
         public async Task<List<FirewallVIPItem>> GetFirewallVIPListAsync()
         {
