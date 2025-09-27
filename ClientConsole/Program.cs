@@ -9,7 +9,20 @@ namespace ClientConsole
 
             var client = new FortigateAPIClient.Client("https://192.168.1.99/", "716tzknfcr1Qdkqr594ffyrbm96pwc");
 
-            var vipList = await client.GetVIPListAsync();
+            //var r1 = await client.GetRouterDefaultAsync();
+            //var r2 = await client.GetRouterDefaultAsync("192.168.1.105");
+
+            //var ifaces = await client.GetSystemInterfaceAsync(GetInterfaceViewTypeEnum.Limited);
+
+            //var availableInterface = ifaces
+            //    .Where(i => i.valid_in_policy == true)
+            //    .Select(i => new
+            //    {
+            //        Name = i.name,
+            //        IP = i.ipv4_addresses.FirstOrDefault()?.ip ?? ""
+            //    }).ToList();
+
+            //var vipList = await client.GetVIPListAsync();
             //await client.CreateVIPAsync(new VIPItem()
             //{
             //    name = "VS6",

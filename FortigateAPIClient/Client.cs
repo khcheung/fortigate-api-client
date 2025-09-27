@@ -35,21 +35,51 @@ namespace FortigateAPIClient
             return this._HttpClient;
         }
 
-        public async Task<List<VIPItem>> GetVIPListAsync()
+        public async Task<List<SystemInterface>> GetSystemInterfaceAsync(GetInterfaceViewTypeEnum? viewType = null)
+        {
+            var paramViewType = "";
+            if (viewType.HasValue)
+            {
+                switch (viewType.Value)
+                {
+                    case GetInterfaceViewTypeEnum.Limited:
+                        paramViewType = viewType.Value.ToString().ToLower();
+                        break;
+                    default:
+                        break;
+                }
+            }
+            // /api/v2/monitor/system/available-interfaces?count=18&start=0&vdom=root&view_type=limited
+            var path = $"/api/v2/monitor/system/available-interfaces?vdom={_VDom}&with_meta=1&datasource=1&view_type={paramViewType}";
+            var result = await GetAsync<ResponseBase<List<SystemInterface>>>(path);
+            return result?.results ?? [];
+        }
+
+        public async Task<RouterGateway> GetRouterDefaultAsync(String destination = "0.0.0.0")
+        {
+            //https://192.168.1.99/api/v2/monitor/router/lookup?vdom=root&destination=0.0.0.0
+            var path = $"/api/v2/monitor/router/lookup?vdom={_VDom}&destination={destination}";
+            var result = await GetAsync<ResponseBase<RouterGateway>>(path);
+            return result?.results ?? default!;
+        }
+
+
+
+        public async Task<List<FirewallVIPItem>> GetFirewallVIPListAsync()
         {
             //datasource=1&key=type&pattern=server-load-balance&
             var path = $"api/v2/cmdb/firewall/vip?vdom={_VDom}&with_meta=1&datasource=1";
 
             //var raw = await GetRawAsync(path);
-            var result = await GetAsync<ResponseBase<List<VIPItem>>>(path);
+            var result = await GetAsync<ResponseBase<List<FirewallVIPItem>>>(path);
 
             return result?.results ?? [];
         }
 
-        public async Task CreateVIPAsync(VIPItem vip)
+        public async Task CreateFirewallVIPAsync(FirewallVIPItem vip)
         {
             var path = $"api/v2/cmdb/firewall/vip?datasource=1&vdom={_VDom}&with_meta=1";
-            var result = await PostAsync<VIPItem, ResponseBase<Object>>(path, vip);
+            var result = await PostAsync<FirewallVIPItem, ResponseBase<Object>>(path, vip);
         }
 
         public async Task<ResponseBase<Object>?> DeleteVIPAsync(String name)
@@ -122,8 +152,6 @@ namespace FortigateAPIClient
             }
             return default;
         }
-
-
     }
 
 }

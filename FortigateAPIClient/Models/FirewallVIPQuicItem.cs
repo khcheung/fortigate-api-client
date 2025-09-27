@@ -2,7 +2,7 @@
 
 namespace FortigateAPIClient.Models
 {
-    public class VIPQuicItem
+    public class FirewallVIPQuicItem
     {
         [JsonPropertyName("maxidletimeout")][JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)] public int maxidletimeout { get; set; }
         [JsonPropertyName("maxudppayloadsize")][JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)] public int maxudppayloadsize { get; set; }

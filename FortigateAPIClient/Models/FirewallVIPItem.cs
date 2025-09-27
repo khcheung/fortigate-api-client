@@ -3,7 +3,7 @@
 namespace FortigateAPIClient.Models
 {
 
-    public class VIPItem
+    public class FirewallVIPItem
     {
         [JsonPropertyName("name")][JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)] public string name { get; set; } = null!;
         [JsonPropertyName("q_origin_key")][JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]  public string q_origin_key { get; set; } = null!;
@@ -22,13 +22,13 @@ namespace FortigateAPIClient.Models
         [JsonPropertyName("extaddr")][JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]  public object[]  extaddr { get; set; }
         [JsonPropertyName("h2support")][JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]  public string h2support { get; set; } = null!;
         [JsonPropertyName("h3support")][JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]  public string h3support { get; set; } = null!;
-        [JsonPropertyName("quic")][JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]  public VIPQuicItem quic { get; set; }
+        [JsonPropertyName("quic")][JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]  public FirewallVIPQuicItem quic { get; set; }
         [JsonPropertyName("nat44")][JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]  public string nat44 { get; set; } = null!;
         [JsonPropertyName("nat46")][JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]  public string nat46 { get; set; } = null!;
         [JsonPropertyName("addnat46route")][JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]  public string addnat46route { get; set; } = null!;
         [JsonPropertyName("mappedip")][JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]  public object[]  mappedip { get; set; }
         [JsonPropertyName("mappedaddr")][JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]  public string mappedaddr { get; set; } = null!;
-        [JsonPropertyName("extintf")][JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]  public VIPExtInterface extintf { get; set; }
+        [JsonPropertyName("extintf")][JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]  public FirewallVIPExtInterface extintf { get; set; }
         [JsonPropertyName("arpreply")][JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]  public string arpreply { get; set; } = null!;
         [JsonPropertyName("httpredirect")][JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]  public string httpredirect { get; set; } = null!;
         [JsonPropertyName("persistence")][JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]  public string persistence { get; set; } = null!;
@@ -41,7 +41,7 @@ namespace FortigateAPIClient.Models
         [JsonPropertyName("gratuitousarpinterval")][JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]  public int gratuitousarpinterval { get; set; }
         [JsonPropertyName("srcintffilter")][JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]  public object[] srcintffilter { get; set; }
         [JsonPropertyName("portmappingtype")][JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]  public string portmappingtype { get; set; } = null!;
-        [JsonPropertyName("realservers")][JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]  public VIPRealServerItem[]  realservers { get; set; } = null!;
+        [JsonPropertyName("realservers")][JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]  public FirewallVIPRealServerItem[]  realservers { get; set; } = null!;
         [JsonPropertyName("httpcookiedomainfromhost")][JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]  public string httpcookiedomainfromhost { get; set; } = null!;
         [JsonPropertyName("httpcookiedomain")][JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]  public string httpcookiedomain { get; set; } = null!;
         [JsonPropertyName("httpcookiepath")][JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]  public string httpcookiepath { get; set; } = null!;

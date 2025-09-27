@@ -2,7 +2,7 @@
 
 namespace FortigateAPIClient.Models
 {
-    public class VIPRealServerItem
+    public class FirewallVIPRealServerItem
     {
         [JsonPropertyName("id")][JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)] public int id { get; set; }
         [JsonPropertyName("q_origin_key")][JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)] public int q_origin_key { get; set; }
