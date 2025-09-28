@@ -13,11 +13,11 @@ namespace FortigateAPIClient.Models
         [JsonPropertyName("link")][JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)] public bool link { get; set; }
         [JsonPropertyName("speed")][JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)] public float speed { get; set; }
         [JsonPropertyName("duplex")][JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)] public int duplex { get; set; }
-        [JsonPropertyName("tx_packets")][JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)] public int tx_packets { get; set; }
-        [JsonPropertyName("rx_packets")][JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)] public int rx_packets { get; set; }
-        [JsonPropertyName("tx_bytes")][JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)] public int tx_bytes { get; set; }
-        [JsonPropertyName("rx_bytes")][JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)] public int rx_bytes { get; set; }
-        [JsonPropertyName("tx_errors")][JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)] public int tx_errors { get; set; }
-        [JsonPropertyName("rx_errors")][JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)] public int rx_errors { get; set; }
+        [JsonPropertyName("tx_packets")][JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)] public decimal? tx_packets { get; set; }
+        [JsonPropertyName("rx_packets")][JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)] public decimal? rx_packets { get; set; }
+        [JsonPropertyName("tx_bytes")][JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)] public decimal? tx_bytes { get; set; }
+        [JsonPropertyName("rx_bytes")][JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)] public decimal? rx_bytes { get; set; }
+        [JsonPropertyName("tx_errors")][JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)] public decimal? tx_errors { get; set; }
+        [JsonPropertyName("rx_errors")][JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)] public decimal? rx_errors { get; set; }
     }
 }

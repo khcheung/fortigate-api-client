@@ -12,8 +12,8 @@ namespace ClientConsole
             //var r1 = await client.GetRouterDefaultAsync();
             //var r2 = await client.GetRouterDefaultAsync("192.168.1.105");
 
-            //var  ifaces = await client.GetSystemInterfaceAsync();
-            //var ifaces = await client.GetSystemAvailableInterfaceAsync(GetInterfaceViewTypeEnum.Limited);
+            //var ifaces1 = await client.GetSystemInterfaceAsync();
+            //var ifaces2 = await client.GetSystemAvailableInterfaceAsync(GetInterfaceViewTypeEnum.Limited);
 
             //var policies = await client.GetFirewallPolicyAsync();
 
