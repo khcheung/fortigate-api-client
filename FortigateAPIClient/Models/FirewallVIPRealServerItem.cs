@@ -17,7 +17,7 @@ namespace FortigateAPIClient.Models
         [JsonPropertyName("httphost")][JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)] public string httphost { get; set; } = string.Empty;
         [JsonPropertyName("translate-host")][JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)] public string translatehost { get; set; } = string.Empty;
         [JsonPropertyName("maxconnections")][JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)] public int maxconnections { get; set; }
-        [JsonPropertyName("monitor")][JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)] public object[] monitor { get; set; }
+        [JsonPropertyName("monitor")][JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)] public object[] monitor { get; set; } = null!;
         [JsonPropertyName("clientip")][JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)] public string clientip { get; set; } = string.Empty;
     }
 
